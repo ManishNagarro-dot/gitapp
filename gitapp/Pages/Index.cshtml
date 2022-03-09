@@ -1,10 +1,14 @@
 ﻿@page
 @model IndexModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration config
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Github</h1>
+    <h3 class="display-4">dbName=@config["demoapp:settings:dbname"]</h3>
+
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

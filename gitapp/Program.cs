@@ -19,8 +19,11 @@ namespace gitapp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
                 {
-                    webBuilder.UseStartup<Startup>();
-                });
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration("Endpoint=https://appconfig007.azconfig.io;Id=Iqm2-l0-s0:6qvuHt+GsBOX2QiNBiIT;Secret=csmGADMzwwhRl8BuvZpHcd6e/QZidK0Z9XEmIaW19p4=");
+                }).UseStartup<Startup>());
+                
     }
 }
